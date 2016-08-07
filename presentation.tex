@@ -41,6 +41,8 @@
 \begin{document}
   \frame{\titlepage}
 \begin{frame}[fragile]{Problems with regular type systems}
+	
+ 	\transdissolve
 	Haskell, F\#, and OCaml all have great type systems, but still there are still holes that can be improved on
 	\begin{lstlisting}
 		head []
@@ -53,6 +55,7 @@
 
 \end{frame}
   \begin{frame}{What causes these problems?}
+ 		\transdissolve
 	  \begin{itemize}
 		\item Most functional languages have two languages that can't interact: the Type language, and the programming language \begin{itemize}
 			\item Types exist only as an enforcement layer
@@ -62,10 +65,12 @@
   \end{frame}
 \begin{frame}
 \begin{center}
+ 		\transdissolve
  The solution to these problems (and many others) are dependent types
 \end{center}
 \end{frame}
 \begin{frame}{A note about compiler hacks}
+ 		\transdissolve
   F\#'s printfn works as you would expect due to a special case in the compiler doing static analysis on that particular case. 
   \linebreak
   \linebreak
@@ -73,6 +78,7 @@
 \end{frame}
 
 \begin{frame}{So what the hell is a dependent type? }
+ 	\transdissolve
 	A dependently typed language generally means two things
 	\begin{itemize}	
 		\item Types, like functions, are first-class citizens that can be built dynamically (without it being dynamic typing)
@@ -88,6 +94,7 @@
 	\end{itemize}
 \end{frame}
 \begin{frame}{Enter Idris}
+	\transdissolve
 	What is Idris? 
 	\begin{itemize}
 		\item Idris is a Haskell-like language by Edwin Brady \begin{itemize}
@@ -102,6 +109,7 @@
 	\end{itemize}
 \end{frame}
 \begin{frame}[fragile]{A safe list with a length}
+	\transdissolve
 	Lists are annoying for a couple reasons
 	\begin{itemize}
 		\item the aforementioned issue with unexpected empty lists causes runtime errors
@@ -114,6 +122,7 @@
 	
 \end{frame}
 \begin{frame}[fragile]{A safe list with a length}
+	\transdissolve
 	\begin{center} 
 		Let's code it!
 	\end{center}
