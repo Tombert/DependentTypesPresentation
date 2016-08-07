@@ -43,7 +43,8 @@
 \begin{frame}[fragile]{Problems with regular type systems}
 	
  	\transdissolve
-	Haskell, F\#, and OCaml all have great type systems, but still there are still holes that can be improved on
+	Haskell, F\#, and OCaml all have great type systems, but still there are still holes that can be improved on.
+	\pause
 	\begin{lstlisting}
 		head []
 		-- *** Exception: Prelude.head: empty list
@@ -56,10 +57,14 @@
 \end{frame}
   \begin{frame}{What causes these problems?}
  		\transdissolve
+	There are two main reasons that this happens
 	  \begin{itemize}
+		\pause
 		\item Most functional languages have two languages that can't interact: the Type language, and the programming language \begin{itemize}
+			\pause
 			\item Types exist only as an enforcement layer
 			\end{itemize}
+		\pause
 		\item Since these languages can't interact, all the types and conditions for them must be known by the programmer ahead of time, and can't can't be deduced from the context of the code.
 	  \end{itemize}
   \end{frame}
@@ -69,24 +74,20 @@
  The solution to these problems (and many others) are dependent types
 \end{center}
 \end{frame}
-\begin{frame}{A note about compiler hacks}
- 		\transdissolve
-  F\#'s printfn works as you would expect due to a special case in the compiler doing static analysis on that particular case. 
-  \linebreak
-  \linebreak
-  This is totes OK, but that only works for that particular case.
-\end{frame}
 
 \begin{frame}{So what the hell is a dependent type? }
  	\transdissolve
 	A dependently typed language generally means two things
 	\begin{itemize}	
+		\pause
 		\item Types, like functions, are first-class citizens that can be built dynamically (without it being dynamic typing)
+		\pause
 		\item Types (return types, input types, etc) can change depending on values
+		\pause
                 \item Functions can be called inside the type signature
 	\end{itemize}
+	\pause
 	Common languages for it are: 
-
 	\begin{itemize}	
 		\item Agda
 		\item Coq 
@@ -97,12 +98,15 @@
 	\transdissolve
 	What is Idris? 
 	\begin{itemize}
+		\pause
 		\item Idris is a Haskell-like language by Edwin Brady \begin{itemize}
 				\item Similar syntax, but not lazy
 	\end{itemize}
+	\pause
 \item Dependent types are a main feature, but less dogmatic than Agda \begin{itemize}
 		\item Long-term goals are dependently typed system drivers
 	\end{itemize}
+		\pause
 		\item Outputs to C, LLVM, JavaScript, and PHP \begin{itemize}
 				\item Making a new backend can usually be done in \textless 500 LOC
 			\end{itemize}
@@ -112,19 +116,47 @@
 	\transdissolve
 	Lists are annoying for a couple reasons
 	\begin{itemize}
-		\item the aforementioned issue with unexpected empty lists causes runtime errors
+		\pause
+		\item The aforementioned issue with unexpected empty lists causes runtime errors
+		\pause
 		\begin{lstlisting} 
 			head [] 
 		  -- *** Exception: Prelude.head: empty list
 		\end{lstlisting}
+	\pause
 	\item Even getting the length requires O(n) operations.
 	\end{itemize}
 	
 \end{frame}
-\begin{frame}[fragile]{A safe list with a length}
+\begin{frame}{A safe list with a length}
 	\transdissolve
 	\begin{center} 
 		Let's code it!
 	\end{center}
+\end{frame}
+
+\begin{frame}{A safe printf (or any variadic function)}
+	\transdissolve
+	Variadic functions (in most langauges) are convenient, but terrible.
+	\begin{itemize}
+	  \pause
+          \item Mixing types (like in printf) generally eschews compiler type-safety
+	  \pause
+	  \item Compiler can't check to see if you have the correct number of arguments
+	\end{itemize}
+\end{frame}
+\begin{frame}{A safe printf (or any variadic function)}
+	\transdissolve
+	\begin{center} 
+	  More coding!
+	\end{center}
+\end{frame}
+\begin{frame}{A note about compiler hacks}
+ 		\transdissolve
+  F\#'s printfn works as you would expect due to a special case in the compiler doing static analysis on that particular case. 
+  \linebreak
+  \linebreak
+  \pause
+  This is totes OK, but that only works for that particular case.
 \end{frame}
 \end{document}
