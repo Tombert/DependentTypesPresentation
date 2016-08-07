@@ -1,0 +1,83 @@
+\documentclass{beamer}
+\title{An Intro to Dependent Types with Idris}
+\subtitle{}
+\author{Thomas Gebert}
+\date{August 9, 2016}
+\usefonttheme{serif}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{lightpurple}{rgb}{0.8,0.8,1}
+
+\definecolor{mygray}{rgb}{0.5,0.5,0.5} 
+\lstset{ %
+  backgroundcolor=\color{white}, 
+  basicstyle=\footnotesize,       
+  breakatwhitespace=false,        
+  breaklines=true,                 
+  captionpos=b,                    
+  commentstyle=\color{mygray},   
+  escapeinside={\%*}{*)},        
+  extendedchars=true,              
+  frame=single,                  
+  keywordstyle=\color{blue},       
+  language=Haskell,                
+  numbers=left,                    
+  numbersep=5pt,                   
+  numberstyle=\tiny\color{mygray},
+  rulecolor=\color{black},        
+  showspaces=false,               
+  showstringspaces=false,          
+  showtabs=false,                  
+  stepnumber=2,                    
+  stringstyle=\color{mymauve},   
+  tabsize=2,                      
+  title=\lstname,                  
+  morekeywords={not,\},\{,preconditions,effects },            
+  deletekeywords={time}            
+}
+
+\usetheme{Warsaw}
+
+\begin{document}
+  \frame{\titlepage}
+\begin{frame}[fragile]{Problems with regular type systems}
+	Haskell, F\#, and OCaml all have great type systems, but still there are still holes that can be improved on
+	\begin{lstlisting}
+		head []
+		-- *** Exception: Prelude.head: empty list
+
+		printf "blah %s %s" "hello"
+		-- *** Exception: printf: argument list ended 
+    -- prematurely
+	\end{lstlisting}
+
+\end{frame}
+  \begin{frame}{What causes these problems?}
+	  \begin{itemize}
+		\item Most functional languages have two languages that can't interact: the Type language, and the programming language \begin{itemize}
+			\item Types exist only as an enforcement layer
+			\end{itemize}
+		\item Since these languages can't interact, all the types and conditions for them must be known by the programmer ahead of time, and can't can't be deduced from the context of the code.
+	  \end{itemize}
+  \end{frame}
+\begin{frame}
+\begin{center}
+ The solution to these problems (and many others) are dependent types
+\end{center}
+\end{frame}
+\begin{frame}{A note about compiler hacks}
+  F\#'s printfn works as you would expect due to a special case in the compiler doing static analysis on that particular case. 
+  \linebreak
+  \linebreak
+  This is totes OK, but that only works for that particular case.
+\end{frame}
+
+\begin{frame}{So what the hell is a dependent type? }
+	A dependently typed language generally means two things
+	\begin{itemize}	
+		\item Types, like functions, are first-class citizens that can be built dynamically (without it being dynamic typing)
+		\item Types (return types, input types, etc) can change depending on values
+                \item Functions can be called inside the type signature
+	\end{itemize}
+\end{frame}
+\end{document}
