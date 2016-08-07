@@ -124,7 +124,11 @@
 		  -- *** Exception: Prelude.head: empty list
 		\end{lstlisting}
 	\pause
-	\item Even getting the length requires O(n) operations.
+	\item Even getting the length requires O(n) operations.\begin{itemize}
+			\pause
+			\item You could store the length as a property, but that requires anyone who updates length to make sure it's updated
+		\end{itemize}
+		
 	\end{itemize}
 	
 \end{frame}
@@ -158,5 +162,23 @@
   \linebreak
   \pause
   This is totes OK, but that only works for that particular case.
+\end{frame}
+\begin{frame}[fragile]{Proofs}
+ 	\transdissolve
+	Idris (and most dependently typed languages) allows for mathematical proofs of program correctness. 
+	\begin{itemize}
+		\pause
+		\item Quick example
+			\begin{lstlisting}
+				fiveIsFive : 5 = 5
+				fiveIsFive = Refl
+			\end{lstlisting}
+
+		\pause
+		\item Very cool but a bit beyond the scope of this talk \begin{itemize} 
+				\pause
+				\item (I'm still learning how to use them)
+			\end{itemize}
+	\end{itemize}
 \end{frame}
 \end{document}
