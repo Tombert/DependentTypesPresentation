@@ -79,5 +79,43 @@
 		\item Types (return types, input types, etc) can change depending on values
                 \item Functions can be called inside the type signature
 	\end{itemize}
+	Common languages for it are: 
+
+	\begin{itemize}	
+		\item Agda
+		\item Coq 
+		\item F*
+	\end{itemize}
+\end{frame}
+\begin{frame}{Enter Idris}
+	What is Idris? 
+	\begin{itemize}
+		\item Idris is a Haskell-like language by Edwin Brady \begin{itemize}
+				\item Similar syntax, but not lazy
+	\end{itemize}
+\item Dependent types are a main feature, but less dogmatic than Agda \begin{itemize}
+		\item Long-term goals are dependently typed system drivers
+	\end{itemize}
+		\item Outputs to C, LLVM, JavaScript, and PHP \begin{itemize}
+				\item Making a new backend can usually be done in \textless 500 LOC
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}[fragile]{A safe list with a length}
+	Lists are annoying for a couple reasons
+	\begin{itemize}
+		\item the aforementioned issue with unexpected empty lists causes runtime errors
+		\begin{lstlisting} 
+			head [] 
+		  -- *** Exception: Prelude.head: empty list
+		\end{lstlisting}
+	\item Even getting the length requires O(n) operations.
+	\end{itemize}
+	
+\end{frame}
+\begin{frame}[fragile]{A safe list with a length}
+	\begin{center} 
+		Let's code it!
+	\end{center}
 \end{frame}
 \end{document}
