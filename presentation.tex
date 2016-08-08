@@ -122,11 +122,15 @@
 		\begin{lstlisting} 
 			head [] 
 		  -- *** Exception: Prelude.head: empty list
+			zipWith (\i j -> i + j) [1,2,3,4] [1]
+			--- [2]
 		\end{lstlisting}
 	\pause
 	\item Even getting the length requires O(n) operations.\begin{itemize}
 			\pause
-			\item You could store the length as a property, but that requires anyone who updates length to make sure it's updated
+			\item You could store the length as a property, but that requires anyone who updates length to make sure it's updated\begin{itemize}
+					\item Generally ok for well-audited things, risky for anything else. 
+				\end{itemize}
 		\end{itemize}
 		
 	\end{itemize}
@@ -179,6 +183,21 @@
 				\pause
 				\item (I'm still learning how to use them)
 			\end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}{What's the point of any of this? }
+ 	\transdissolve
+	I don't expect everyone here to convert all their stuff to Idris, so why am I talking? 
+	\begin{itemize}
+		\pause
+		\item The ideas in Idris (Agda, F*) could conceivably be ported to more mainstream languages \begin{itemize} 
+				\pause
+				\item Scala actually has basic support for dependent types.
+			\end{itemize}	
+		\pause
+		\item Having increased program safety is always a good thing
+		\pause
+		\item Because dependent types are super cool, and worth a ton of further research. 
 	\end{itemize}
 \end{frame}
 \end{document}
