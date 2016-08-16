@@ -7,7 +7,9 @@
 \usepackage{listings}
 \usepackage{color}
 \definecolor{lightpurple}{rgb}{0.8,0.8,1}
+\definecolor{mymauve}{rgb}{0.8,0.8,1}
 \usecolortheme{wolverine}
+\def \durationtime {0.40}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5} 
 \lstset{ %
   backgroundcolor=\color{white}, 
@@ -42,7 +44,7 @@
   \frame{\titlepage}
 \begin{frame}[fragile]{Problems with regular type systems}
 	
- 	\transdissolve
+ 	\transdissolve[duration=0.3]
 	Haskell, F\#, and OCaml all have great type systems, but still there are still holes that can be improved on.
 	\pause
 	\begin{lstlisting}
@@ -55,47 +57,48 @@
 	\end{lstlisting}
 
 \end{frame}
-  \begin{frame}{What causes these problems?}
- 		\transdissolve
+\begin{frame}{What causes these problems?}
+	\transdissolve[duration=0.3]
 	There are two main reasons that this happens
-	  \begin{itemize}
+	\begin{itemize}
 		\pause
 		\item Most functional languages have two languages that can't interact: the Type language, and the programming language \begin{itemize}
 			\pause
-			\item Types exist only as an enforcement layer
-			\end{itemize}
+			\item Types exist only as an enforcement layer\end{itemize}
 		\pause
-		\item Since these languages can't interact, all the types and conditions for them must be known by the programmer ahead of time, and can't can't be deduced from the context of the code.
-	  \end{itemize}
-  \end{frame}
+		\item Since these languages can't interact, all the types and conditions for them must be known by the programmer ahead of time, and can't be deduced from the context of the code.
+	\end{itemize}
+\end{frame}
 \begin{frame}
 \begin{center}
- 		\transdissolve
+ 	\transdissolve[duration=0.3]
  The solution to these problems (and many others) are dependent types
 \end{center}
 \end{frame}
 
 \begin{frame}{So what the hell is a dependent type? }
- 	\transdissolve
+	\transdissolve[duration=0.3]
+
 	A dependently typed language generally means two things:
 	\begin{itemize}	
 		\pause
 		\item Types, like functions, are first-class citizens that can be built dynamically (without it being dynamic typing)
 		\pause
 		\item Types (return types, input types, etc) can change depending on values
+			\pause
+			\item Functions can be called inside the type signature, all at compile-time.
+			\pause
 	\end{itemize}
-	\pause
-        \item Functions can be called inside the type signature, all at compile-time.
-	\pause
+
 	Common languages for it are: 
 	\begin{itemize}	
 		\item Agda
 		\item Coq 
-		\item F*
+		\item dsaf
 	\end{itemize}
 \end{frame}
 \begin{frame}{Enter Idris}
-	\transdissolve
+	\transdissolve[duration=0.3]
 	What is Idris? 
 	\begin{itemize}
 		\pause
@@ -103,7 +106,7 @@
 				\item Similar syntax, but not lazy
 	\end{itemize}
 	\pause
-\item Dependent types are a main feature, but less dogmatic than Agda \begin{itemize}
+     \item Dependent types are a main feature, but less dogmatic than Agda \begin{itemize}
 		\item Long-term goals are dependently typed system drivers
 	\end{itemize}
 		\pause
@@ -113,7 +116,7 @@
 	\end{itemize}
 \end{frame}
 \begin{frame}[fragile]{A safe list with a length}
-	\transdissolve
+	\transdissolve[duration=0.3]
 	Lists are annoying for a couple reasons
 	\begin{itemize}
 		\pause
@@ -137,7 +140,7 @@
 	
 \end{frame}
 \begin{frame}{A safe list with a length}
-	\transdissolve
+	\transdissolve[duration=0.3]
 	\begin{center} 
 		Let's code it!
 	\end{center}
@@ -154,7 +157,7 @@
 	\end{itemize}
 \end{frame}
 \begin{frame}{A safe printf (or any variadic function)}
-	\transdissolve
+	\transdissolve[duration=0.3]
 	\begin{center} 
 	  More coding!
 	\end{center}
@@ -168,7 +171,7 @@
   This is totes OK, but that only works for that particular case.
 \end{frame}
 \begin{frame}[fragile]{Proofs}
- 	\transdissolve
+	\transdissolve[duration=0.3]
 	Idris (and most dependently typed languages) allows for mathematical proofs of program correctness. 
 	\begin{itemize}
 		\pause
@@ -186,7 +189,7 @@
 	\end{itemize}
 \end{frame}
 \begin{frame}{What's the point of any of this? }
- 	\transdissolve
+ 	\transdissolve[duration=0.3]
 	I don't expect everyone here to convert all their stuff to Idris, so why am I talking? 
 	\begin{itemize}
 		\pause
@@ -201,7 +204,7 @@
 	\end{itemize}
 \end{frame}
 \begin{frame}{Questions }
- 	\transdissolve
+	\transdissolve[duration=0.3]
 	\begin{center}
 		Questions? 
 	\end{center}
