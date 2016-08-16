@@ -6,7 +6,7 @@ data Format = FInt Format
             | FEnd
 
 format : List Char -> Format
-format ('%'::'d'::es) = FString (format es)
+format ('%'::'s'::es) = FString (format es)
 format ('%'::'i'::es) = FInt (format es)
 format (x::xs) = FOther x (format xs)
 format [] = FEnd
@@ -20,6 +20,8 @@ interpFormat (FInt x) = Int -> interpFormat x
 interpFormat (FString x) = String -> interpFormat x
 interpFormat (FOther _ x) = interpFormat x
 interpFormat FEnd = String
+
+printf "Hello %d you goober, I am %i years old" -- String - Int -> String
 
 toFunction : String -> (fmt : Format) -> interpFormat fmt
 toFunction acc (FInt x) = \i => toFunction (acc ++ (show i)) x
